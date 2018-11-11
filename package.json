@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "truffle test",
-    "build-contracts": "sol-merger \"./contracts/*.sol\" ./merge"
+    "build-contracts": "sol-merger \"./contracts/*.sol\" ./merge",
+    "lint:sol": "solium -d .",
+    "lint:sol:fix": "solium -d . --fix"
   },
   "repository": {
     "type": "git",
