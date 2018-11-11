@@ -1,0 +1,33 @@
+{
+  "name": "clinicaltrials-on-blockchain",
+  "version": "1.0.0",
+  "description": " Demonstrate how blockchains can be used to improve data transparency in clinical trials ",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "build-contracts": "sol-merger \"./contracts/*.sol\" ./merge"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmaliwal/clinicaltrials-on-blockchain.git"
+  },
+  "author": "Chirag Maliwal <chiragmaliwal1995@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmaliwal/clinicaltrials-on-blockchain/issues"
+  },
+  "homepage": "https://github.com/cmaliwal/clinicaltrials-on-blockchain#readme",
+  "devDependencies": {
+    "dotenv": "^6.1.0",
+    "eth-gas-reporter": "^0.1.12",
+    "sol-merger": "^0.1.2",
+    "solium": "^1.1.8",
+    "truffle-hdwallet-provider": "0.0.6"
+  },
+  "dependencies": {
+    "openzeppelin-solidity": "^2.0.0"
+  }
+}
