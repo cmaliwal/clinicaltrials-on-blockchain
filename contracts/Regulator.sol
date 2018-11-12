@@ -117,7 +117,7 @@ contract Regulator {
         }
 
         // deploy the actual clinical trial contract and return it
-        ClinicalTrial trial = new ClinicalTrial(owner, tp.croAddr, _id, tp.startDate, tp.endDate, tp.drugName, tp.ipfsHash);
+        ClinicalTrial trial = new ClinicalTrial(owner, tp.croAddr, uint32(_id), tp.startDate, tp.endDate, tp.drugName, tp.ipfsHash);
 
         proposals[_id].trial = trial;
         proposals[_id].status = STATUS_ACCEPTED;
