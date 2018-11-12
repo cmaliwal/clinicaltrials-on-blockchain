@@ -8,11 +8,11 @@ contract ClinicalTrial {
     address cro;
     address regulator;
 
-    uint32 public proposalId;
+    uint public proposalId;
 
-    uint32 public startDate;
-    uint32 public endDate;
-    uint32 public createdDate;
+    uint public startDate;
+    uint public endDate;
+    uint public createdDate;
 
     bytes32 public drugName;
     bytes public ipfsHash;
@@ -37,16 +37,12 @@ contract ClinicalTrial {
     }
 
     modifier trialIdOpen {
-        if ( now < startDate || now > endDate ) {
-            revert("Something went wrong");
-        }
+        require(now > startDate || now < endDate, "Trail id not open");
         _;
     }
 
     modifier dateBeforeStart {
-        if ( now > startDate ) {
-            revert("date passed");
-        }
+        require(now < startDate, "date before start");
         _;
     }
 
@@ -59,19 +55,19 @@ contract ClinicalTrial {
         endDate = _endDate;
         drugName = _drugName;
         ipfsHash = _ipfsHash;
-        createdDate = uint32(now);
+        createdDate = now;
     }
 
     function getSubjectsCount() public view returns(uint _counter) {
         _counter = subjects.length;
     }
 
-    function getSubjectById(uint _id) public view returns (bytes32 _subject) {
+    function getSubjectById(uint _id) public view returns (bytes32) {
         if ( _id >= subjects.length ) {
             _subject = "";
             return;
         }
-        _subject = subjects[_id];
+        return subjects[_id];
     }
 
     function getDataCounterForSubject(uint _subjectId) public view returns (uint) {
