@@ -64,8 +64,7 @@ contract ClinicalTrial {
 
     function getSubjectById(uint _id) public view returns (bytes32) {
         if ( _id >= subjects.length ) {
-            _subject = "";
-            return;
+            return "";
         }
         return subjects[_id];
     }
